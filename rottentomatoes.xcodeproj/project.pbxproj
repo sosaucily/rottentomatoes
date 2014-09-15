@@ -13,6 +13,7 @@
 		1CA68FFA19C667750027CECD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA68FF919C667750027CECD /* Images.xcassets */; };
 		1CA68FFD19C667750027CECD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA68FFB19C667750027CECD /* LaunchScreen.xib */; };
 		1CA6900919C667750027CECD /* rottentomatoesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA6900819C667750027CECD /* rottentomatoesTests.swift */; };
+		1CF5223119C672A8006B52DB /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF5223019C672A8006B52DB /* MovieTableViewCell.swift */; };
 		EC4092C61058452E893E0593 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 975D65DC540A4B629055801D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		1CA6900719C667750027CECD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA6900819C667750027CECD /* rottentomatoesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rottentomatoesTests.swift; sourceTree = "<group>"; };
 		1CE476A819C66A8E00B8C246 /* RottenTomatoes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RottenTomatoes-Bridging-Header.h"; sourceTree = "<group>"; };
+		1CF5223019C672A8006B52DB /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		975D65DC540A4B629055801D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE9D0825F85C4019A4DFB363 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 				1CA68FFB19C667750027CECD /* LaunchScreen.xib */,
 				1CA68FF019C667750027CECD /* Supporting Files */,
 				1CE476A819C66A8E00B8C246 /* RottenTomatoes-Bridging-Header.h */,
+				1CF5223019C672A8006B52DB /* MovieTableViewCell.swift */,
 			);
 			path = rottentomatoes;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				1CA68FF519C667750027CECD /* ViewController.swift in Sources */,
 				1CA68FF319C667750027CECD /* AppDelegate.swift in Sources */,
+				1CF5223119C672A8006B52DB /* MovieTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
