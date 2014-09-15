@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var movieTableView: UITableView!
+
     var moviesArray: NSArray?
     
     let RottenTomatoesAPIKey = "3ep56bczb367ku9hruf7xpdq"
@@ -31,8 +32,25 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = movieTableView.dequeueReusableCellWithIdentifier("com.codepath.rottentomatoes.moviecell") as MovieTableViewCell
         let movieDictionary = self.moviesArray![indexPath.row] as NSDictionary
+        
         cell.titleLabel.text = movieDictionary["title"] as NSString
+        cell.descriptionLabel.text = movieDictionary["synopsis"] as NSString
+        
+        
+        let postersDict = movieDictionary["posters"] as NSDictionary
+        let thumbUrl = postersDict["thumbnail"] as NSString
+        
+        let fixOriginal = thumbUrl.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
+        
+        cell.thumbnailImageView.setImageWithURL(NSURL(string: fixOriginal))
+        
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailsViewController = MovieDetailsViewController(nibName: nil, bundle: nil)
+        
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
     func getMovieData() {
@@ -52,6 +70,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         responseObject: AnyObject!) -> Void {
             self.moviesArray = responseObject["movies"] as? NSArray
             self.movieTableView.reloadData()
+            
+        
     }
     
     func fetchMoviesError(operation: AFHTTPRequestOperation!,
