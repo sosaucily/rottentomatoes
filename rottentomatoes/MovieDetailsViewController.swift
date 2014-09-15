@@ -9,23 +9,37 @@
 import UIKit
 
 class MovieDetailsViewController: UIViewController {
-    override func loadView() {
-        self.view = UIView(frame: CGRectZero)
-        self.view.backgroundColor = UIColor.redColor()
-    }
+
+    @IBOutlet weak var fullImageView: UIImageView!
+    
+    var fullImageUrl: NSString?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        if fullImageUrl != nil {
+            let imageRequest = NSURLRequest(URL: NSURL(string: fullImageUrl!))
+            self.fullImageView.setImageWithURLRequest(imageRequest, placeholderImage: nil, success:{ (request: NSURLRequest!, response: NSHTTPURLResponse!, image: UIImage!) in
+                    self.fullImageView.image = image
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                }, failure: { (request: NSURLRequest!, response: NSHTTPURLResponse!, error: NSError!) in
+                    //pass
+            })
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBOutlet weak var movieDescriptionLabel: UILabel!
+    
+    @IBOutlet var panner: UIPanGestureRecognizer!
+    
+    @IBAction func panAction(sender: AnyObject) {
+        let translation = panner.translationInView(self.view)
+        self.movieDescriptionLabel.center = CGPoint(x:self.panner.view!.center.x,
+            y:self.panner.view!.center.y + translation.y)
+        println(self.panner.view!.center.y)
     }
     
-
     /*
     // MARK: - Navigation
 

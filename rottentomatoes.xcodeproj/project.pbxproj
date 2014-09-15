@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C32D08119C6A56B007A793F /* MovieDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C32D08019C6A56B007A793F /* MovieDetails.xib */; };
 		1CA68FF319C667750027CECD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA68FF219C667750027CECD /* AppDelegate.swift */; };
 		1CA68FF519C667750027CECD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA68FF419C667750027CECD /* ViewController.swift */; };
 		1CA68FF819C667750027CECD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA68FF619C667750027CECD /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C32D08019C6A56B007A793F /* MovieDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetails.xib; sourceTree = "<group>"; };
 		1CA68FED19C667750027CECD /* rottentomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rottentomatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA68FF119C667750027CECD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CA68FF219C667750027CECD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				1CE476A819C66A8E00B8C246 /* RottenTomatoes-Bridging-Header.h */,
 				1CF5223019C672A8006B52DB /* MovieTableViewCell.swift */,
 				1CF5223419C68324006B52DB /* MovieDetailsViewController.swift */,
+				1C32D08019C6A56B007A793F /* MovieDetails.xib */,
 			);
 			path = rottentomatoes;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				1CA68FF819C667750027CECD /* Main.storyboard in Resources */,
 				1CA68FFD19C667750027CECD /* LaunchScreen.xib in Resources */,
 				1CA68FFA19C667750027CECD /* Images.xcassets in Resources */,
+				1C32D08119C6A56B007A793F /* MovieDetails.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

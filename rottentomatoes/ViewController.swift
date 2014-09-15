@@ -40,15 +40,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let postersDict = movieDictionary["posters"] as NSDictionary
         let thumbUrl = postersDict["thumbnail"] as NSString
         
-        let fixOriginal = thumbUrl.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
-        
-        cell.thumbnailImageView.setImageWithURL(NSURL(string: fixOriginal))
+        cell.thumbnailImageView.setImageWithURL(NSURL(string: thumbUrl))
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailsViewController = MovieDetailsViewController(nibName: nil, bundle: nil)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailsViewController = MovieDetailsViewController(nibName: "MovieDetails", bundle: nil)
+        
+        let movieDictionary = self.moviesArray![indexPath.row] as NSDictionary
+        let postersDict = movieDictionary["posters"] as NSDictionary
+        
+        let thumbUrl = postersDict["thumbnail"] as NSString
+        detailsViewController.fullImageUrl = thumbUrl.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
         
         self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
