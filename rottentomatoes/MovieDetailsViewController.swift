@@ -12,7 +12,15 @@ class MovieDetailsViewController: UIViewController {
 
     @IBOutlet weak var fullImageView: UIImageView!
     
+    @IBOutlet weak var movieDescriptionLabel: UILabel!
+    
+    @IBOutlet var panOutlet: UIPanGestureRecognizer!
+
+    var y_coord: Int = 454;
+    
     var fullImageUrl: NSString?
+    
+    var movieDescriptionDict: NSDictionary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,16 +36,27 @@ class MovieDetailsViewController: UIViewController {
                     //pass
             })
         }
+        
+        
+        let synopsis = movieDescriptionDict!["synopsis"] as NSString
+        let title = movieDescriptionDict!["title"] as NSString
+        let year = movieDescriptionDict!["year"] as Int
+        let mpaa_rating = movieDescriptionDict!["mpaa_rating"] as NSString
+        let critics_score = (movieDescriptionDict!["ratings"] as NSDictionary)["critics_score"] as Int
+        let audience_score = (movieDescriptionDict!["ratings"] as NSDictionary)["audience_score"] as Int
+        
+        self.movieDescriptionLabel?.text = "\(title) (\(year))Critics Score: \(critics_score), Audience Score: \(audience_score)\(mpaa_rating)\(synopsis)"
+        
     }
-    @IBOutlet weak var movieDescriptionLabel: UILabel!
     
-    @IBOutlet var panner: UIPanGestureRecognizer!
-    
-    @IBAction func panAction(sender: AnyObject) {
-        let translation = panner.translationInView(self.view)
-        self.movieDescriptionLabel.center = CGPoint(x:self.panner.view!.center.x,
-            y:self.panner.view!.center.y + translation.y)
-        println(self.panner.view!.center.y)
+    @IBAction func panGestureAction(sender: AnyObject) {
+        let translation = panOutlet.translationInView(self.view)
+        self.movieDescriptionLabel.center = CGPoint(x:self.panOutlet.view!.center.x,
+            y:CGFloat(self.y_coord) + translation.y)
+        
+        if panOutlet.state == UIGestureRecognizerState.Ended {
+            self.y_coord = self.y_coord + Int(translation.y)
+        }
     }
     
     /*

@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="fullImageView" destination="o7N-uy-cFe" id="hlJ-Wy-sHv"/>
                 <outlet property="movieDescriptionLabel" destination="IFF-k0-8z0" id="Eib-Bd-odk"/>
-                <outlet property="panner" destination="QSw-Vq-dom" id="aXh-Zs-oks"/>
+                <outlet property="panOutlet" destination="KtL-pa-ZHc" id="zhg-wB-SSl"/>
                 <outlet property="view" destination="iN0-l3-epB" id="qru-jN-vb6"/>
             </connections>
         </placeholder>
@@ -21,25 +21,25 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IFF-k0-8z0">
-                    <rect key="frame" x="8" y="348" width="304" height="212"/>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IFF-k0-8z0">
+                    <rect key="frame" x="8" y="367" width="304" height="334"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.81987724149999996" green="1" blue="0.76264676899999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.17013417119565222" green="0.17013417119565222" blue="0.17013417119565222" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
                     <gestureRecognizers/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <connections>
-                        <outletCollection property="gestureRecognizers" destination="QSw-Vq-dom" appends="YES" id="3IQ-5x-5FG"/>
+                        <outletCollection property="gestureRecognizers" destination="KtL-pa-ZHc" appends="YES" id="m3X-hL-hwI"/>
                     </connections>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="295" y="281"/>
         </view>
-        <panGestureRecognizer minimumNumberOfTouches="1" id="QSw-Vq-dom">
+        <panGestureRecognizer minimumNumberOfTouches="1" id="KtL-pa-ZHc">
             <connections>
-                <action selector="panAction:" destination="-1" id="Ecw-io-PlG"/>
+                <action selector="panGestureAction:" destination="-1" id="vjL-aB-6c3"/>
             </connections>
         </panGestureRecognizer>
     </objects>

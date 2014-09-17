@@ -53,6 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let thumbUrl = postersDict["thumbnail"] as NSString
         detailsViewController.fullImageUrl = thumbUrl.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
+        detailsViewController.movieDescriptionDict = movieDictionary
         
         self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
