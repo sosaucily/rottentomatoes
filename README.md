@@ -12,3 +12,4 @@ Included Required Features:
 * Using cocoapods
 * Asynchronous image downloading must be implemented using the UIImageView category in the AFNetworking library.
 
+![Alt text](./rottentomatoes.gif?raw=true "Optional Title")
