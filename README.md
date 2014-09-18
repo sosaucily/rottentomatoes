@@ -3,7 +3,7 @@ rottentomatoes
 
 Movie Viewer via Rotten Tomatoes
 
-This took about 8 hours.  
+This took about 10 hours.  
 
 Included Required Features:
 * User can view a list of movies from Rotten Tomatoes. Poster images must be loading asynchronously.
