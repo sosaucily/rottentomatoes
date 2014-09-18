@@ -14,4 +14,4 @@ Included Required Features:
 * Pull to refresh works, and redownloads and refreshes the table
 * Shows network error message when network not present.
 
-![Alt text](./rottentomatoes_v2.gif?raw=true "Optional Title")
+![Alt text](./rottentomatoes/rottentomatoes_v2.gif?raw=true "Optional Title")
