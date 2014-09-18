@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var movieTableView: UITableView!
 
+    var refreshControl: UIRefreshControl!
     var moviesArray: NSArray?
     
     let RottenTomatoesAPIKey = "3ep56bczb367ku9hruf7xpdq"
@@ -21,6 +22,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
 
         self.getMovieData()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+        
+        movieTableView.insertSubview(refreshControl, atIndex: 0)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,20 +74,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             failure: self.fetchMoviesError)
         
         let request = NSMutableURLRequest(URL: NSURL.URLWithString(RottenTomatoesURLString))
-        
     }
     
     func updateViewWithMovies(operation: AFHTTPRequestOperation!,
         responseObject: AnyObject!) -> Void {
             self.moviesArray = responseObject["movies"] as? NSArray
             self.movieTableView.reloadData()
-            
+            self.refreshControl.endRefreshing()
         
     }
     
     func fetchMoviesError(operation: AFHTTPRequestOperation!,
         error: NSError!) -> Void {
             println("Error: " + error.localizedDescription)
+    }
+    
+    func onRefresh() {
+        self.getMovieData()
     }
 }
 
