@@ -80,17 +80,41 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         responseObject: AnyObject!) -> Void {
             self.moviesArray = responseObject["movies"] as? NSArray
             self.movieTableView.reloadData()
+            
             self.refreshControl.endRefreshing()
-        
+            self.hideNetworkError()
     }
     
     func fetchMoviesError(operation: AFHTTPRequestOperation!,
         error: NSError!) -> Void {
-            println("Error: " + error.localizedDescription)
+            self.showNetworkError()
+            self.refreshControl.endRefreshing()
     }
     
     func onRefresh() {
         self.getMovieData()
     }
+    
+    func showNetworkError() {
+        if (self.view.subviews.count == 1) {
+            var networkErrorView: UILabel = UILabel (frame:CGRectMake(0, 65, 0, 0));
+            networkErrorView.backgroundColor = UIColor.grayColor()
+            networkErrorView.alpha = 0.9
+            networkErrorView.textColor = UIColor.blackColor()
+            networkErrorView.font = UIFont.boldSystemFontOfSize(10)
+            networkErrorView.text = "Network Error!"
+            UIView.animateWithDuration(0.25, animations: {
+                networkErrorView.frame = CGRectMake(0, 65, 320, 30)
+            })
+            self.view.addSubview(networkErrorView)
+        }
+    }
+    
+    func hideNetworkError() {
+        if (self.view.subviews.count == 2) {
+            self.view.subviews[1].removeFromSuperview()
+        }
+    }
+
 }
 
