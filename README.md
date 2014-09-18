@@ -11,5 +11,7 @@ Included Required Features:
 * User sees loading state while waiting for movies API. You can use one of the 3rd party libraries at cocoacontrols.com.
 * Using cocoapods
 * Asynchronous image downloading must be implemented using the UIImageView category in the AFNetworking library.
+* Pull to refresh works, and redownloads and refreshes the table
+* Shows network error message when network not present.
 
-![Alt text](./rottentomatoes.gif?raw=true "Optional Title")
+![Alt text](./rottentomatoes_v2.gif?raw=true "Optional Title")
